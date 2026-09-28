@@ -50,7 +50,7 @@ Detalhes, gráficos e ressalvas em [`docs/RELATORIO.md`](docs/RELATORIO.md).
 
 **1. Obtenha o dataset.** Baixe em
 <https://www.kaggle.com/datasets/solomonameh/spotify-music-dataset> apenas o arquivo
-`high_popularity_spotify_data.csv` (1.686 linhas × 29 colunas). Detalhes em [`data/README.md`](data/README.md).
+`high_popularity_spotify_data.csv` (1.686 linhas × 29 colunas).
 
 **2. Escolha onde rodar.**
 
@@ -68,15 +68,14 @@ O notebook procura o CSV em `/kaggle/input/...`, em `data/` e em `../data/`, nes
 
 ## Observações importantes
 
-- O notebook é entregue **sem saídas** (limpo). Execute-o para gerar todos os números e gráficos.
-- Os valores e gráficos do relatório vêm das execuções **originais** dos três trabalhos sobre o dataset real.
+- O notebook é entregue sem saídas (limpo). Execute-o para gerar todos os números e gráficos.
+- Os valores e gráficos do relatório vêm das execuções originais dos três trabalhos sobre o dataset real.
   Reexecutar com outra versão do scikit-learn pode alterar levemente os números da Parte IV.
-- As Partes II–III usam as **1.686 linhas** do dataset; a Parte IV usa **faixas únicas** (evita vazamento de dados),
+- As Partes II–III usam as 1.686 linhas do dataset; a Parte IV usa faixas únicas (evita vazamento de dados),
   o que é explicado na seção 13.1 do notebook.
 - A seção 14 do relatório lista as inconsistências encontradas entre os trabalhos e como foram tratadas.
 
 ## Fontes
 
 - Dataset: [Spotify Music Dataset — Kaggle](https://www.kaggle.com/datasets/solomonameh/spotify-music-dataset) (arquivo `high_popularity_spotify_data.csv`, atualizado em 2025).
-- Notebook de Big Data (Kaggle): <https://www.kaggle.com/code/ramonlodi/projeto-big-data>
 - Vídeo de apresentação (Big Data): <https://www.loom.com/share/4d6563cc3bc14d7fb57818a299ce1074>
