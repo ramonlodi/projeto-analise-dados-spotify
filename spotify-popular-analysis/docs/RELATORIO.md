@@ -7,14 +7,13 @@
 | **Instituição** | Instituto Federal de Santa Catarina (IFSC) — Sistemas de Informação |
 | **Disciplinas** | Big Data · Probabilidade e Estatística |
 | **Estrutura** | Parte I Dados · Parte II Exploratória · Parte III Estatística · Parte IV Machine Learning |
-| **Professor (Big Data)** | Cristiano M. Garcia |
-| **Autores** | Eduarda Ferreira · Luís Weber · Ramon Lodi de Sousa |
+| **Autor** | Ramon Lodi de Sousa |
 | **Dataset** | [Spotify Music Dataset — Kaggle](https://www.kaggle.com/datasets/solomonameh/spotify-music-dataset) |
 | **Notebook** | [`notebooks/analise_spotify.ipynb`](../notebooks/analise_spotify.ipynb) |
 
-> **Sobre os números deste documento.** Todos os valores e gráficos abaixo foram extraídos dos **três trabalhos originais**
-> (relatório de Estatística e os dois notebooks de Big Data — exploratório e de Machine Learning —, executados sobre o
-> dataset real). Para reproduzi-los, execute o notebook com o CSV original — veja o [README](../README.md).
+> **Sobre os números deste documento.** Todos os valores e gráficos abaixo foram extraídos dos três trabalhos originais
+> (relatório de Estatística e os dois notebooks de Big Data, exploratório e de Machine Learning, executados sobre o
+> dataset real). Para reproduzi-los, execute o notebook com o CSV original, veja o [README](../README.md).
 
 ---
 
@@ -45,15 +44,15 @@ influenciando diretamente o consumo musical.
 
 Nesse contexto, características sonoras como energia, dançabilidade, valência emocional e tempo musical podem
 estar relacionadas ao sucesso de determinadas músicas. Este trabalho explora essas características por meio de
-técnicas de **análise exploratória de dados**, de **análise estatística** e de **aprendizado de máquina**.
+técnicas de análise exploratória de dados, de análise estatística e de aprendizado de máquina.
 
 ## 2. Objetivos
 
-- Identificar **padrões, relações e características musicais** associadas à popularidade de músicas presentes em playlists do Spotify.
-- Aplicar **análise exploratória** (histogramas, boxplots, gráficos de barras, dispersão e correlação).
-- Aplicar conceitos de **Probabilidade e Estatística**: média, moda, mediana, variância, desvio padrão, e medidas de tendência central e de dispersão.
-- Aplicar um processo de **Aprendizado de Máquina supervisionado** (CRISP-DM) para prever o gênero de uma música a partir de suas características sonoras.
-- Utilizar **Python** e bibliotecas de análise, visualização e modelagem (pandas, NumPy, Matplotlib, Seaborn, scikit-learn).
+- Identificar padrões, relações e características musicais associadas à popularidade de músicas presentes em playlists do Spotify.
+- Aplicar análise exploratória (histogramas, boxplots, gráficos de barras, dispersão e correlação).
+- Aplicar conceitos de Probabilidade e Estatística: média, moda, mediana, variância, desvio padrão, e medidas de tendência central e de dispersão.
+- Aplicar um processo de Aprendizado de Máquina supervisionado (CRISP-DM) para prever o gênero de uma música a partir de suas características sonoras.
+- Utilizar Python e bibliotecas de análise, visualização e modelagem (pandas, NumPy, Matplotlib, Seaborn, scikit-learn).
 
 ## 3. Descrição do dataset
 
@@ -104,7 +103,7 @@ As descrições foram retiradas da página oficial do dataset no Kaggle.
 
 > **Recorte por trabalho.** O trabalho de **Big Data (exploratório)** utilizou as 29 colunas. O de **Estatística**
 > utilizou apenas 10: `track_name`, `track_artist`, `energy`, `tempo`, `danceability`, `playlist_genre`, `loudness`,
-> `valence`, `track_popularity` e `duration_ms`. O de **Machine Learning** utilizou 14 variáveis preditoras
+> `valence`, `track_popularity` e `duration_ms`. O de Machine Learning utilizou 14 variáveis preditoras
 > (`energy`, `tempo`, `danceability`, `loudness`, `liveness`, `valence`, `time_signature`, `speechiness`,
 > `track_popularity`, `instrumentalness`, `mode`, `key`, `duration_ms`, `acousticness`) e o alvo `playlist_genre`.
 
@@ -114,7 +113,7 @@ As descrições foram retiradas da página oficial do dataset no Kaggle.
 
 ### 4.1. Estrutura
 
-- 1.686 registros e 29 colunas: **9 `float64`, 5 `int64` e 15 `object`**.
+- 1.686 registros e 29 colunas: 9 `float64`, 5 `int64` e 15 `object`.
 - Todas as colunas com 1.686 valores não nulos, exceto `track_album_name` (1.685) na leitura padrão do pandas.
 
 ### 4.2. Estatísticas descritivas (`describe()`)
@@ -131,23 +130,23 @@ As descrições foram retiradas da página oficial do dataset no Kaggle.
 
 **Primeiras observações**
 
-- As músicas mais populares tendem a ser **energéticas** (média 0,667; mediana 0,689) e **dançantes** (mediana 0,665).
+- As músicas mais populares tendem a ser energéticas (média 0,667; mediana 0,689) e dançantes (mediana 0,665).
 - **Pouca dispersão de popularidade:** média ≈ 75,8 e desvio padrão ≈ 6,03.
 - As músicas populares **não têm forte caráter instrumental**: são majoritariamente vocais.
 - O `loudness` tem um valor mínimo de **−43,6 dB**, muito distante do restante (mediana −5,97 dB) — um outlier evidente.
 
 ### 4.3. Valores ausentes
 
-Na leitura padrão, o pandas apontou **1 valor ausente** (0,059%) em `track_album_name`, na linha da faixa do
-artista **NAYEON** (gênero k-pop). Como o `track_album_id` estava preenchido, pesquisou-se o ID e verificou-se que
-o álbum se chama literalmente **"NA"**, que o pandas interpreta como `NaN`. A correção foi reler o arquivo com
+Na leitura padrão, o pandas apontou 1 valor ausente (0,059%) em `track_album_name`, na linha da faixa do
+artista NAYEON (gênero k-pop). Como o `track_album_id` estava preenchido, pesquisou-se o ID e verificou-se que
+o álbum se chama literalmente "NA", que o pandas interpreta como `NaN`. A correção foi reler o arquivo com
 `keep_default_na=False`.
 
 **Resultado:** nenhum valor ausente.
 
 ### 4.4. Valores duplicados
 
-"Duplicata" depende do critério. O mesmo dataset gerou **três números diferentes** nos trabalhos originais:
+"Duplicata" depende do critério. O mesmo dataset gerou três números diferentes nos trabalhos originais:
 
 | Critério | Trabalho | Resultado |
 |---|---|---:|
@@ -155,20 +154,16 @@ o álbum se chama literalmente **"NA"**, que o pandas interpreta como `NaN`. A c
 | Linha idêntica nas **10 colunas** selecionadas | Estatística | **99** |
 | Mesmo **`track_id`** | Big Data (Machine Learning) | **249** (1.686 → 1.437 faixas únicas) |
 
-Não há contradição, são critérios distintos. A **mesma faixa aparece em mais de uma playlist**: mudam `playlist_name`,
+Não há contradição, são critérios distintos. A mesma faixa aparece em mais de uma playlist: mudam `playlist_name`,
 `playlist_id`, `playlist_subgenre` e afins, mas o `track_id` e as características sonoras são os mesmos. Ao restringir
 a 10 colunas, descartam-se as colunas que distinguiam as linhas, e surgem repetições. Trata-se de uma característica dos
 dados, e não de um erro. A conclusão correta é:
 
 > *Não há linhas duplicadas no dataset completo; há faixas repetidas em playlists diferentes.*
 
-**Decisão adotada.** As Partes II e III descrevem as **1.686 entradas** (cada aparição de uma música numa playlist),
-como nos trabalhos originais. A Parte IV (Machine Learning) usa **faixas únicas**, pois a mesma música no treino e no
+**Decisão adotada.** As Partes II e III descrevem as 1.686 entradas (cada aparição de uma música numa playlist),
+como nos trabalhos originais. A Parte IV (Machine Learning) usa faixas únicas, pois a mesma música no treino e no
 teste causaria vazamento de dados (seção 11.3).
-
-> ⚠️ A conclusão do relatório de Estatística ("*o dataset não possui linhas duplicadas*") contradiz a saída do próprio
-> código (99 duplicadas). Ela é correta para o dataset completo, mas não para o recorte de 10 colunas.
-> Ver [seção 14](#14-observações-sobre-a-unificação-dos-trabalhos).
 
 ---
 
@@ -180,7 +175,7 @@ teste causaria vazamento de dados (seção 11.3).
 
 - **Danceability:** forte concentração entre 0,55 e 0,85, pico próximo de 0,7; poucos casos abaixo de 0,3; leve assimetria à esquerda.
 - **Energy:** concentrada entre 0,6 e 0,9, pico próximo de 0,75 — predominância de músicas energéticas.
-- **Valence:** a mais espalhada; concentração moderada entre 0,2 e 0,8, pico próximo de 0,4. O sucesso comercial **não depende exclusivamente de músicas "felizes"**.
+- **Valence:** a mais espalhada; concentração moderada entre 0,2 e 0,8, pico próximo de 0,4. O sucesso comercial não depende exclusivamente de músicas "felizes".
 - **Tempo:** pico entre 120 e 140 BPM e poucos registros nos extremos, sugerindo padronização estrutural da indústria.
 
 ### 5.2. Variáveis numéricas — boxplots
@@ -188,7 +183,7 @@ teste causaria vazamento de dados (seção 11.3).
 ![Boxplots de danceability, energy, valence e tempo](../images/02_boxplots.png)
 
 - **Danceability:** mediana ≈ 0,66; quartis entre ≈ 0,55 e 0,77; poucos outliers inferiores.
-- **Energy:** quartis entre ≈ 0,55 e 0,81; **vários outliers inferiores** — músicas pouco energéticas também alcançam alta popularidade.
+- **Energy:** quartis entre ≈ 0,55 e 0,81; vários outliers inferiores, músicas pouco energéticas também alcançam alta popularidade.
 - **Valence:** maior dispersão; mediana ≈ 0,53; as músicas populares não seguem um único padrão emocional.
 - **Tempo:** concentração entre ≈ 100 e 140 BPM, mediana ≈ 120 BPM; outliers superiores acima de ≈ 190 BPM.
 
@@ -196,16 +191,16 @@ teste causaria vazamento de dados (seção 11.3).
 
 ![Distribuição dos gêneros musicais](../images/03_generos.png)
 
-- O **pop** é o gênero **modal**, com quantidade muito superior às demais categorias (≈ 350+ músicas).
-- **Rock, hip-hop, latin e electronic** têm participação relevante, evidenciando diversidade parcial, embora concentrada em estilos comerciais.
-- **Jazz, lo-fi, soul, country e world** têm baixa representatividade no dataset.
-- Há uma **longa cauda** de gêneros de baixa frequência — característica comum em plataformas digitais.
+- O pop é o gênero modal, com quantidade muito superior às demais categorias (≈ 350+ músicas).
+- Rock, hip-hop, latin e electronic têm participação relevante, evidenciando diversidade parcial, embora concentrada em estilos comerciais.
+- Jazz, lo-fi, soul, country e world têm baixa representatividade no dataset.
+- Há uma longa cauda de gêneros de baixa frequência, característica comum em plataformas digitais.
 
 ### 5.4. Variáveis categóricas — modo (maior/menor)
 
 ![Distribuição dos modos musicais](../images/04_modo.png)
 
-Predominância do modo **menor** (≈ 975) sobre o **maior** (≈ 710). Na teoria musical, o modo menor costuma ser associado
+Predominância do modo menor (≈ 975) sobre o maior (≈ 710). Na teoria musical, o modo menor costuma ser associado
 a emoções mais melancólicas ou introspectivas. O resultado contrasta parcialmente com os altos valores de `energy` e
 `danceability`: músicas populares combinam bases energéticas e dançantes com composições emocionalmente mais profundas.
 
@@ -218,8 +213,8 @@ a emoções mais melancólicas ou introspectivas. O resultado contrasta parcialm
 ![Dispersão entre danceability e popularidade](../images/05_dispersao.png)
 
 - A maior concentração está entre `danceability` ≈ 0,45 e 0,9.
-- Músicas de alta popularidade aparecem em **vários níveis** de danceability, não só nos mais altos.
-- **Não há tendência linear forte:** a dançabilidade, isoladamente, não explica o sucesso comercial (confirmado pela correlação ≈ 0,00 na matriz da seção 7).
+- Músicas de alta popularidade aparecem em vários níveis de danceability, não só nos mais altos.
+- Não há tendência linear forte: a dançabilidade, isoladamente, não explica o sucesso comercial (confirmado pela correlação ≈ 0,00 na matriz da seção 7).
 
 ### 6.2. Gênero musical × Energia
 
@@ -231,7 +226,7 @@ a emoções mais melancólicas ou introspectivas. O resultado contrasta parcialm
 | **Baixa energia** | classical, jazz, lofi, folk | Estilos calmos e instrumentais |
 | **Alta dispersão** | pop, rock, hip-hop, latin | Grande variedade interna |
 
-Há **outliers** em vários gêneros, mostrando que existe diversidade dentro de cada categoria.
+Há outliers em vários gêneros, mostrando que existe diversidade dentro de cada categoria.
 
 > **Cautela:** gêneros pouco frequentes (jazz, lofi, classical...) têm caixas baseadas em poucas músicas; suas
 > medianas são menos confiáveis. O notebook inclui uma tabela com o tamanho da amostra por gênero.
@@ -244,23 +239,23 @@ Há **outliers** em vários gêneros, mostrando que existe diversidade dentro de
 
 | Relação | Correlação | Leitura |
 |---|---:|---|
-| energy × loudness | **+0,69** | Músicas mais energéticas têm maior volume — a correlação positiva mais forte |
-| energy × acousticness | **−0,61** | Músicas acústicas tendem a ser menos intensas |
+| energy × loudness | +0,69 | Músicas mais energéticas têm maior volume — a correlação positiva mais forte |
+| energy × acousticness | −0,61 | Músicas acústicas tendem a ser menos intensas |
 | loudness × acousticness | −0,48 | Acústicas tendem a ser mais suaves |
 | loudness × instrumentalness | −0,36 | Instrumentais tendem a ser menos altas |
 | danceability × valence | +0,35 | Relação moderada |
 | energy × valence | +0,33 | Relação moderada |
 | danceability × speechiness | +0,25 | Fraca |
-| **`track_popularity` × demais** | **−0,14 a +0,08** | **Praticamente nenhuma relação linear** |
+| `track_popularity` × demais | −0,14 a +0,08 | Praticamente nenhuma relação linear |
 
-O achado central: `track_popularity` tem **correlações muito fracas** com todos os atributos sonoros (a maior em
+O achado central: `track_popularity` tem correlações muito fracas com todos os atributos sonoros (a maior em
 módulo é com `speechiness`, −0,14). Isso sugere que a popularidade não depende exclusivamente de fatores técnicos, e
 possivelmente seja influenciada por algoritmos de recomendação, viralização, marketing e comportamento do público.
 
-> **Ressalva estatística importante:** o dataset contém apenas músicas **já populares** (`track_popularity` aprox. entre
-> 68 e 100, conforme o gráfico de dispersão). Essa **restrição de amplitude** tende, por si só, a reduzir as
-> correlações. Assim, o resultado significa que, **entre músicas já populares**, os atributos sonoros pouco explicam
-> quem fica mais ou menos alto — e não que esses atributos sejam irrelevantes para a popularidade em geral.
+> **Ressalva estatística importante:** o dataset contém apenas músicas já populares (`track_popularity` aprox. entre
+> 68 e 100, conforme o gráfico de dispersão). Essa restrição de amplitude tende, por si só, a reduzir as
+> correlações. Assim, o resultado significa que, entre músicas já populares, os atributos sonoros pouco explicam
+> quem fica mais ou menos alto, e não que esses atributos sejam irrelevantes para a popularidade em geral.
 
 ---
 
