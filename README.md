@@ -1,10 +1,10 @@
 # Análise de Músicas Populares no Spotify
 
 Análise exploratória, análise estatística e Machine Learning sobre as músicas mais populares do Spotify,
-reunidas em **um único notebook** e um **relatório completo**.
+reunidas em um único notebook e um relatório completo.
 
-Trabalho desenvolvido no **Instituto Federal de Santa Catarina (IFSC)** — curso de Sistemas de Informação —
-nas disciplinas de **Big Data** e **Probabilidade e Estatística**.
+Trabalho desenvolvido no Instituto Federal de Santa Catarina (IFSC), curso de Sistemas de Informação,
+nas disciplinas de Big Data e Probabilidade e Estatística.
 
 **Autor:** Ramon Lodi de Sousa
 
