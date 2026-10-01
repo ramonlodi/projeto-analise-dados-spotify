@@ -127,8 +127,8 @@ O notebook procura o CSV em `/kaggle/input/...`, em `data/` e em `../data/`, nes
 ## 👤 Autor
 
 **Ramon Lodi de Sousa**
-[GitHub](https://github.com/ramonlodi) · <!-- adicione seu LinkedIn: [LinkedIn](https://linkedin.com/in/seu-usuario) -->
+[GitHub](https://github.com/ramonlodi) · [LinkedIn](https://linkedin.com/in/ramonlodi)
 
 ## 📄 Licença
 
-Distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+Distribuído sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
